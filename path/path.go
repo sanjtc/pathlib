@@ -18,3 +18,19 @@ func ConvertBackslashToSlash(s string) string {
 
 	return res
 }
+
+// GetParentPath
+// get parent path.
+func GetParentPath(p string) string {
+	index := strings.LastIndex(p, "/")
+	if index == -1 {
+		return p
+	}
+
+	if index == len(p)-1 {
+		p = p[0:index]
+		index = strings.LastIndex(p, "/")
+	}
+
+	return p[0:index]
+}
