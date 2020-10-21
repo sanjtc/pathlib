@@ -1,4 +1,4 @@
-package path
+package urlutils
 
 import "strings"
 

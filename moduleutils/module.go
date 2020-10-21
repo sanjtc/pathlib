@@ -1,17 +1,17 @@
-package module
+package moduleutils
 
 import (
 	"os"
 	"strings"
 
-	"github.com/pantskun/pathlib/path"
+	"github.com/pantskun/pathlib/pathutils"
 )
 
 // GetModulePath
 // get current module path.
 func GetModulePath(moduleName string) string {
 	fp, _ := os.Getwd()
-	fp = path.ConvertBackslashToSlash(fp)
+	fp = pathutils.ConvertBackslashToSlash(fp)
 	fp = strings.SplitAfter(fp, moduleName)[0]
 
 	return fp
