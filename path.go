@@ -1,6 +1,9 @@
 package pathlib
 
-import "strings"
+import (
+	"os"
+	"strings"
+)
 
 // ConvertBackslashToSlash
 // Convert "\\" to "/".
@@ -33,4 +36,18 @@ func GetParentPath(p string) string {
 	}
 
 	return p[0:index]
+}
+
+func IsDir(p string) (bool, error) {
+	s, err := os.Open(p)
+	if err != nil {
+		return false, err
+	}
+
+	info, err := s.Stat()
+	if err != nil {
+		return false, err
+	}
+
+	return info.IsDir(), nil
 }
