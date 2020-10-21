@@ -39,12 +39,7 @@ func GetParentPath(p string) string {
 }
 
 func IsDir(p string) (bool, error) {
-	s, err := os.Open(p)
-	if err != nil {
-		return false, err
-	}
-
-	info, err := s.Stat()
+	info, err := os.Stat(p)
 	if err != nil {
 		return false, err
 	}
