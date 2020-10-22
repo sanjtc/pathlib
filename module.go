@@ -8,7 +8,11 @@ import (
 // GetModulePath
 // get current module path.
 func GetModulePath(moduleName string) string {
-	fp, _ := os.Getwd()
+	fp, err := os.Getwd()
+	if err != nil {
+		return ""
+	}
+
 	fp = ConvertBackslashToSlash(fp)
 	fp = strings.SplitAfter(fp, moduleName)[0]
 
