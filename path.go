@@ -38,6 +38,8 @@ func GetParentPath(p string) string {
 	return p[0:index]
 }
 
+// IsDir
+// 判断路径是否为目录.
 func IsDir(p string) (bool, error) {
 	info, err := os.Stat(p)
 	if err != nil {
