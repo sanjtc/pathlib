@@ -1,11 +1,11 @@
 package pathlib
 
 import (
-	"os"
 	"strings"
 )
 
 // ConvertBackslashToSlash
+// Convert "\\" to "/".
 // Convert "\\" to "/".
 func ConvertBackslashToSlash(s string) string {
 	ss := strings.Split(s, "\\")
@@ -36,15 +36,4 @@ func GetParentPath(p string) string {
 	}
 
 	return p[0:index]
-}
-
-// IsDir
-// 判断路径是否为目录.
-func IsDir(p string) (bool, error) {
-	info, err := os.Stat(p)
-	if err != nil {
-		return false, err
-	}
-
-	return info.IsDir(), nil
 }
